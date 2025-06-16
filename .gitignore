@@ -1,0 +1,19 @@
+# Ignore node modules (dependencies)
+node_modules/
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore environment config
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore backups or upload artifacts
+*.zip
+*.tar.gz
+
