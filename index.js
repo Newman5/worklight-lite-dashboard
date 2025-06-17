@@ -10,7 +10,7 @@ const commands = [
         .setName('worklight')
         .setDescription('Turn on your worklight')
         .addStringOption(option =>
-            option.setName('Project')
+            option.setName('project')
                 .setDescription('What are you working on?')
                 .setRequired(true)
         )
