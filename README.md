@@ -14,7 +14,9 @@ Work Light is:
 
 It’s like turning on your garage light while you work — so others can see you're building something cool.
 
-![worklight-cover](https://res.cloudinary.com/dc9njstyu/raw/upload/v1750172542/m_6837d3bcd0e88191b77cbc069d1c8257_qfsle4)
+![worklight-cover](https://res.cloudinary.com/dc9njstyu/image/upload/v1750432902/m_6837d3bcd0e88191b77cbc069d1c8257_qfsle4.png)
+
+
 ---
 
 ## 🚀 Getting Started to use the bot
