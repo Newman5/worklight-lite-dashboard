@@ -31,7 +31,7 @@
   <div id="lights"></div>
 
   <script>
-    fetch('worklight.json')
+    fetch('http://38.46.216.73:8113/worklight.json')
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById('lights');
