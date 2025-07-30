@@ -22,9 +22,9 @@ const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
 
+    const CLIENT_ID = client.user.id;
+    const GUILD_ID = process.env.GUILD_ID;
     try {
-        const CLIENT_ID = client.user.id;
-        const GUILD_ID = '697214274803859487';
         await rest.put(
             Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
             { body: commands }
