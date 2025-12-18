@@ -1,6 +1,11 @@
 /**
  * Express Server for Work Light Lite Dashboard
  * Serves the dashboard and provides API endpoints
+ * 
+ * Security Note: Rate limiting is not implemented in this MVP version.
+ * For production deployments with public access, consider adding rate limiting
+ * middleware (e.g., express-rate-limit) to prevent abuse of the API endpoints.
+ * See ARCHITECTURE.md for scaling and security recommendations.
  */
 
 const express = require('express');
@@ -21,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 // API endpoint to get active worklight entries
+// Note: Consider adding rate limiting for production use
 app.get('/api/worklight', (req, res) => {
   try {
     const entries = getActiveEntries();
@@ -32,6 +38,7 @@ app.get('/api/worklight', (req, res) => {
 });
 
 // Legacy endpoint for backward compatibility
+// Note: Consider adding rate limiting for production use
 app.get('/worklight.json', (req, res) => {
   fs.readFile(config.data.worklightFile, 'utf-8', (err, data) => {
     if (err) {
