@@ -231,7 +231,8 @@ function archiveOldEntries(daysOld = 7) {
       writeWorklightData(activeEntries);
 
       // Append to archive file
-      const archivePath = config.data.worklightFile.replace('.json', '-archive.json');
+      const parsed = path.parse(config.data.worklightFile);
+      const archivePath = path.join(parsed.dir, `${parsed.name}-archive${parsed.ext}`);
       let existingArchive = [];
 
       if (fs.existsSync(archivePath)) {

@@ -27,7 +27,14 @@ const config = {
   // Feature Flags
   features: {
     enableAutoPruning: process.env.ENABLE_AUTO_PRUNING === 'true',
-    defaultExpiryMinutes: parseInt(process.env.DEFAULT_EXPIRY_MINUTES || '1440', 10),
+    defaultExpiryMinutes: (() => {
+      const value = parseInt(process.env.DEFAULT_EXPIRY_MINUTES || '1440', 10);
+      return isNaN(value) ? 1440 : value;
+    })(),
+    autoPruningIntervalMs: (() => {
+      const value = parseInt(process.env.AUTO_PRUNING_INTERVAL_MS || '60000', 10);
+      return isNaN(value) ? 60000 : value;
+    })(),
   },
 };
 

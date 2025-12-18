@@ -53,8 +53,8 @@ client.once('ready', async () => {
   if (config.features.enableAutoPruning) {
     setInterval(() => {
       pruneExpiredEntries();
-    }, 60000); // Check every minute
-    console.log('✅ Auto-pruning enabled');
+    }, config.features.autoPruningIntervalMs);
+    console.log(`✅ Auto-pruning enabled (interval: ${config.features.autoPruningIntervalMs}ms)`);
   }
 });
 
