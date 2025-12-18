@@ -1,12 +1,14 @@
 {
   "name": "worklight-lite-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lightweight tool to post, store, and visualize daily project updates from a Discord bot",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["discord", "bot", "dashboard", "productivity", "worklight"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

@@ -2,7 +2,7 @@
 node_modules/
 
 # Ignore logs
-logs
+logs/
 *.log
 npm-debug.log*
 
@@ -16,4 +16,10 @@ Thumbs.db
 # Ignore backups or upload artifacts
 *.zip
 *.tar.gz
+
+# Ignore archive files
+*-archive.json
+
+# Ignore VS Code SFTP config (may contain sensitive credentials)
+.vscode/sftp.json
 
