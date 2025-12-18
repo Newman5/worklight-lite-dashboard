@@ -74,6 +74,11 @@ function validateEntry(entry) {
 
 /**
  * Adds a new worklight entry
+ * 
+ * Note: This function implements a "one light per user" model. When a user
+ * adds a new entry, their previous entry is automatically removed. This ensures
+ * each user has only one active worklight status at a time.
+ * 
  * @param {Object} entry - New entry to add
  * @returns {Object} Result with success status and message
  */
@@ -90,7 +95,7 @@ function addEntry(entry) {
   try {
     let data = readWorklightData();
     
-    // Remove old entries from the same user
+    // Remove old entries from the same user (one light per user model)
     data = data.filter(e => e.user !== entry.user);
     
     // Add new entry

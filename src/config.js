@@ -5,6 +5,17 @@
 
 require('dotenv').config();
 
+/**
+ * Parses an integer from environment variable with fallback default
+ * @param {string} envVar - Environment variable value
+ * @param {number} defaultValue - Default value if parsing fails
+ * @returns {number} Parsed integer or default value
+ */
+function parseIntWithDefault(envVar, defaultValue) {
+  const value = parseInt(envVar || String(defaultValue), 10);
+  return isNaN(value) ? defaultValue : value;
+}
+
 const config = {
   // Discord Bot Configuration
   discord: {
@@ -27,14 +38,8 @@ const config = {
   // Feature Flags
   features: {
     enableAutoPruning: process.env.ENABLE_AUTO_PRUNING === 'true',
-    defaultExpiryMinutes: (() => {
-      const value = parseInt(process.env.DEFAULT_EXPIRY_MINUTES || '1440', 10);
-      return isNaN(value) ? 1440 : value;
-    })(),
-    autoPruningIntervalMs: (() => {
-      const value = parseInt(process.env.AUTO_PRUNING_INTERVAL_MS || '60000', 10);
-      return isNaN(value) ? 60000 : value;
-    })(),
+    defaultExpiryMinutes: parseIntWithDefault(process.env.DEFAULT_EXPIRY_MINUTES, 1440),
+    autoPruningIntervalMs: parseIntWithDefault(process.env.AUTO_PRUNING_INTERVAL_MS, 60000),
   },
 };
 
